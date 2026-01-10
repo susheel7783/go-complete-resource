@@ -11,11 +11,6 @@ func main() { // The main function - program execution starts here
 	
 	// For loop: repeats the banking menu 200 times
 	for i := 0; i < 200; i++ {
-		// for: keyword to start a loop
-		// i := 0: initializes loop counter variable i to 0 (runs once at start)
-		// i < 200: condition - loop continues while i is less than 200
-		// i++: increment - adds 1 to i after each iteration (i = i + 1)
-		// This loop will run iterations: 0, 1, 2, 3, ... 199 (total of 200 times)
 		
 		// Prints the welcome message to the console
 		fmt.Println("Welcome to Go Bank!")
