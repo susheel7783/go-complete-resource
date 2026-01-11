@@ -1,4 +1,6 @@
+
 // by this we can call our bank.go file and read each functions
+// behind the scene both the files connected
 
 package main
 
@@ -11,3 +13,5 @@ func presentOptions() {
 	fmt.Println("3. Withdraw money")
 	fmt.Println("4. Exit")
 }
+
+// --and this function will be part of main function
