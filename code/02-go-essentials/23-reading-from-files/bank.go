@@ -1,4 +1,4 @@
-package main // Declares this file is part of the main package (entry point for executable programs)
+package main
 
 import ( // Imports multiple packages
 	"fmt"    // Package for formatted I/O operations
