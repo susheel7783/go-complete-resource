@@ -177,3 +177,6 @@ func main() { // The main function - program execution starts here
 
 // case 1:, case 2:, case 3:: Specific values to match
 // default:: Catches everything else (like "else")
+// continue inside a case: Exits switch AND skips rest of loop iteration
+// return inside a case: Exits switch, loop, AND entire function
+// break inside a case (commented): Would only exit switch, not loop
