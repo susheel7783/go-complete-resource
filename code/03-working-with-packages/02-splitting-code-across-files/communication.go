@@ -1,3 +1,5 @@
+// by this we can call our bank.go file and read each functions
+
 package main
 
 import "fmt"
