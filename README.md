@@ -1,7 +1,5 @@
 # Go - The Complete Guide
 
-This repository contains course resources (code snapshots, slides) for my [Go - The Complete Guide course](https://acad.link/golang).
-
 ## How To Use
 
 The [/code](/code/) folder contains multiple code snapshots for every course sections. You can use the code stored in that folder to compare your code to mine in case you're getting stuck when following along with the course.
