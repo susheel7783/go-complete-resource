@@ -73,3 +73,59 @@ func getUserData(promptText string) string {
 	fmt.Scan(&value)       // Read input from console into value
 	return value           // Return the collected input
 }
+// ------------------------------------------------------------------
+🔑 KEY CONCEPTS:
+1. Value Receiver vs Pointer Receiver
+Value Receiver (Previous Version):
+gofunc (u user) outputUserDetails() {  // Receives a COPY
+	// Changes here won't affect original
+}
+Pointer Receiver (Current Version):
+gofunc (u *user) outputUserDetails() {  // Receives a REFERENCE
+	// Changes here WILL affect original
+}
+
+2. Why Use Pointer Receivers?
+✅ MUST use pointer receiver when:
+
+Method needs to modify the struct (like clearUserName)
+
+✅ SHOULD use pointer receiver when:
+
+Struct is large (avoids copying all data)
+You want consistency (if some methods use pointers, use them for all)
+
+✅ Can use value receiver when:
+
+Method only reads data
+Struct is small
+You want to ensure the original cannot be modified
+
+
+3. How Pointer Receivers Enable Mutation
+go// WITHOUT pointer receiver (won't work for mutation):
+func (u user) clearUserName() {
+	u.firstName = ""  // Only clears the COPY, not original
+	u.lastName = ""   // Original struct remains unchanged
+}
+
+// WITH pointer receiver (enables mutation):
+func (u *user) clearUserName() {
+	u.firstName = ""  // Clears the ORIGINAL struct
+	u.lastName = ""   // Changes persist after method returns
+}
+```
+
+---
+
+**📊 Sample Output:**
+```
+Please enter your first name: John
+Please enter your last name: Doe
+Please enter your birthdate (MM/DD/YYYY): 03/15/1990
+John Doe 03/15/1990
+ 03/15/1990
+Explanation:
+
+First output: Shows "John Doe 03/15/1990" (original data)
+Second output: Shows " 03/15/1990" (empty first/last names, birthDate remains)
