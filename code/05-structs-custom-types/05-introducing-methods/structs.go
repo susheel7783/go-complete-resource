@@ -57,3 +57,46 @@ func getUserData(promptText string) string {
 	fmt.Scan(&value)       // Read input from console
 	return value           // Return the value to caller
 }
+// ---------------------
+
+🔑 KEY DIFFERENCE: Method vs Function
+Previous Version (Function with Pointer Parameter):
+gofunc outputUserDetails(u *user) {  // Regular function, takes pointer parameter
+	fmt.Println(u.firstName, u.lastName, u.birthDate)
+}
+
+// Called like this:
+outputUserDetails(&appUser)  // Must pass pointer explicitly
+Current Version (Method with Receiver):
+gofunc (u user) outputUserDetails() {  // Method attached to user type
+	fmt.Println(u.firstName, u.lastName, u.birthDate)
+}
+
+// Called like this:
+appUser.outputUserDetails()  // Called directly on the object
+```
+
+---
+
+**📚 Understanding Methods:**
+
+1. **Receiver**: `(u user)` is the receiver - it binds the function to the `user` type
+2. **Value Receiver**: `(u user)` creates a copy of the struct (good for read-only operations)
+3. **Pointer Receiver**: `(u *user)` would use a pointer (needed if you want to modify the struct)
+4. **Object-Oriented Style**: Methods make code more intuitive - objects can perform actions on themselves
+
+---
+
+**🎯 When to Use Methods vs Functions:**
+
+- **Use Methods** when the function logically belongs to a type (like displaying user details)
+- **Use Regular Functions** for utility operations that don't belong to a specific type
+
+---
+
+**Sample Output:**
+```
+Please enter your first name: Alice
+Please enter your last name: Smith
+Please enter your birthdate (MM/DD/YYYY): 05/20/1995
+Alice Smith 05/20/1995
